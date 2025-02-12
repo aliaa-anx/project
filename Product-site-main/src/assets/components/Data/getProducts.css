@@ -1,0 +1,39 @@
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* button {
+  margin-left: 20px;
+  height: 30px;
+  background-color: rgb(99, 99, 233);
+} */
+
+
+#butn {
+  background-color: #4CAF50; 
+  border: none; 
+  color: white; 
+  padding: 15px 32px; 
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px; 
+  margin: 10px 20px; 
+  cursor: pointer;
+  transition-duration: 0.4s; 
+}
+
+#butn:hover {
+  background-color: white; /* White background on hover */
+  color: black; /* Black text on hover */
+  border: 2px solid #4CAF50; /* Add green border */
+}
