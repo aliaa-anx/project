@@ -23,9 +23,9 @@ const Layout = () => {
     <div>
       <Header />
 
-        <button onClick={handleLogout} style={{ marginLeft: "10px" }}>
+        {/* <button onClick={handleLogout} style={{ marginLeft: "10px" }}>
           Logout
-        </button>
+        </button> */}
       <main>
         <Outlet />
       </main>
