@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import './card.css';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const Card = ({ product }) => {
   const isProductPage = location.pathname.startsWith('/product/');
   return (
     <div className="card">
-      <img src={product.image} alt={product.title} className="card-image" />
+      <img src={product.images} alt={product.title} className="card-image" />
       <div className="card-content">
         <h2 className="card-title">{product.title}</h2>
         <p className="card-price">Price: ${product.price}</p>
@@ -34,5 +34,39 @@ const Card = ({ product }) => {
     </div>
   )}
 
+
+export default Card;*/
+import React from 'react';
+import './card.css';
+import { Link, useLocation } from 'react-router-dom';
+
+const Card = ({ product }) => {
+  const location = useLocation();
+  const isProductPage = location.pathname.startsWith('/product/');
+
+  return (
+    <div className="card">
+      <img src={product.imageCover} alt={product.title} className="card-image" />
+      <div className="card-content">
+        <h2 className="card-title">{product.title}</h2>
+        <p className="card-price">Price: ${product.price}</p>
+        <p className="card-description">{product.description}</p>
+        <p className="card-rating">Rating: {product.ratingsAverage} ({product.ratingsQuantity} reviews)</p>
+
+        {!isProductPage && (
+          <Link to={`/product/${product.id}`} className="card-button">
+            View
+          </Link>
+        )}
+
+        {isProductPage && (
+          <Link to="/products" className="card-button">
+            Back to Products
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default Card;
