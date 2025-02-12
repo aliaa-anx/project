@@ -8,9 +8,9 @@ export default function Header() {
       <header>
         <h1>Welcome</h1>
         <ul>
-          <Link to='/product'>Home</Link>
-          <Link to='/about'>About</Link>
-          <Link to='/contact'>Contact</Link>
+        {/* <Link to="/home/product">Products</Link> */}
+          <Link to="/">Login</Link> |
+        <Link to="/register">Register</Link>
           
         </ul>
       </header>

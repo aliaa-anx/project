@@ -1,27 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 
+
 const Layout = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-   const handleLogout = () => {
-      sessionStorage.removeItem("loggedInUser"); // Clear session
-      navigate("/"); // Redirect to login
-   };
+  useEffect(() => {
+    const loggedInUser = sessionStorage.getItem("loggedInUser");
+    if (!loggedInUser) {
+      navigate("/");
+    }
+  }, [navigate]);
 
-   return (
-      <div>
-         <nav>
-            <Link to="/home/product">Products</Link> |
-            <Link to="/home/about">About</Link> |
-            <Link to="/home/contact">Contact</Link> |
-            <Link to="/">Login</Link> |
-            <Link to="/register">Register</Link> |
-            <button onClick={handleLogout} style={{ marginLeft: "10px" }}>Logout</button>
-         </nav>
-         <Outlet />
-      </div>
-   );
+  const handleLogout = () => {
+    sessionStorage.removeItem("loggedInUser"); // Clear session
+    navigate("/"); // Redirect to login
+  };
+
+  return (
+    <div>
+      <Header />
+
+        <button onClick={handleLogout} style={{ marginLeft: "10px" }}>
+          Logout
+        </button>
+      <main>
+        <Outlet />
+      </main>
+
+      {/* <Footer /> */}
+    </div>
+  );
 };
 
 export default Layout;

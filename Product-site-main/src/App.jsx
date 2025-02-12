@@ -8,23 +8,23 @@ import Login from "./assets/components/Login/Login";
 import Register from "./assets/components/Register/Register";
 import About from "./assets/components/About";
 
+
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
-    errorElement: <h1>ERROR!!!!</h1>,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/home",
-    element: <Layout />,
+    element: <Layout />, // Wrap Login and Register pages in Layout
     children: [
       {
-        path: "product",
-        element: <GetProducts />,
+        path: "/",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/home",
+        element: <GetProducts />, // Default page after login
       },
       {
         path: "about",
